@@ -1,0 +1,5 @@
+.vscode
+config.py
+tmp/
+__pycache__/
+*.zip
