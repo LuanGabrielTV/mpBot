@@ -7,3 +7,5 @@ callback_data_audio = 'audio'
 default_audio_name = 'audio.mp3'
 
 separator = '/'
+
+temp_reddit_folder = 'redvid_temp'

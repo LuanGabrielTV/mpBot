@@ -2,11 +2,9 @@ from os import path
 from config import API_TOKEN, WHITE_LIST
 
 from telebot import types, TeleBot
-from downloader import get_audio_from_video, download_reel_video
+from downloader import get_audio_from_video, download_video
 from constants import callback_data_video, callback_data_audio, \
-            download_path, default_video_name, default_audio_name, \
-            separator
-
+            download_path, default_video_name, default_audio_name
 bot = TeleBot(API_TOKEN)
     
 @bot.callback_query_handler(func=lambda callback: True)
@@ -27,7 +25,6 @@ def send_welcome(message):
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
     if message.from_user.id in WHITE_LIST:
-        reel_id = (message.text)[31:].split(separator, 1)[0]
         
         markup = types.InlineKeyboardMarkup(row_width=2)
         
@@ -37,7 +34,7 @@ def echo_all(message):
         markup.add(is_video_button, is_audio_button)
         
         try:
-            download_reel_video(reel_id)
+            download_video(message.text)
             bot.send_message(message.chat.id, 'O que você deseja baixar?', reply_markup=markup)
         except:
             bot.reply_to(message, 'Não foi possível baixar o vídeo. Tente outra url.')
