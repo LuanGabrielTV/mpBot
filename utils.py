@@ -3,6 +3,7 @@ import os
 
 from constants import download_path, temp_reddit_folder
 
+
 def clean_up_files():
     if not os.path.exists(download_path):
         raise "Download path doesn't exist"
