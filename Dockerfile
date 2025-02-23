@@ -1,6 +1,6 @@
 FROM python:3.10
-COPY ./ /mp-bot
-COPY requirements.txt /mp-bot/requirements.txt
-WORKDIR /mp-bot
+COPY requirements.txt .
 RUN pip install -r requirements.txt
-CMD [ "python", "./main.py" ]
+COPY . ./app
+WORKDIR /app
+CMD [ "python", "bot.py" ]
