@@ -11,6 +11,7 @@ pillow==10.4.0
 proglog==0.1.10
 pyTelegramBotAPI==4.26.0
 python-dotenv==1.0.1
+redvid==2.0.5
 requests==2.32.3
 telebot==0.0.5
 tqdm==4.67.1
